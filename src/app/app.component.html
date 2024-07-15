@@ -1,0 +1,214 @@
+<!-- <h1>App root component</h1>
+<app-hello-world></app-hello-world> -->
+
+<!-- String interpolation -->
+<!-- <h1>{{fullName}}</h1>
+<input type="text" [(ngModel)]="fullName">
+{{getName()}} -->
+
+
+<!-- property Binding -->
+<!-- <h1 [innerText]="fullName"></h1> -->
+
+
+<!-- Event Binding -->
+<!-- <h1>Clicked {{ClickCount}} times</h1>
+<button (click)="ClickMe()">Click Me!</button> -->
+
+
+
+<!-- Structural Directives -  ngFor, ngIf, ngSwitch -- Changes appearance and behaviour-->
+
+<!-- ngFor -->
+<!-- <h1>Safe navigation Operator</h1>
+<ul>
+  <li *ngFor="let user of users"> {{user.details?.name}}</li>
+</ul> -->
+
+<!-- ngIf -->
+<!-- <label for=""><input type="checkbox" [(ngModel)]="showme">Can you show me?</label>
+<p *ngIf="showme">Show me checked</p>
+<p *ngIf="!showme">Show me unchecked</p> -->
+
+<!-- ngIf another way -->
+<!-- <label for=""><input type="checkbox" [(ngModel)]="showme">Can you show me?</label>
+<p *ngIf="showme; else elseBlock">Show me checked</p>
+<ng-template #elseBlock>
+<p *ngIf="!showme">Show me unchecked</p>
+</ng-template> -->
+
+<!-- <label for=""><input type="checkbox" [(ngModel)]="showme">Can you show me?</label>
+<div *ngIf="showme; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock>
+  <p >Show me checked</p>
+</ng-template>
+<ng-template #elseBlock>
+<p *ngIf="!showme">Show me unchecked</p>
+</ng-template>  -->
+
+<!-- ngSwitch -->
+<!-- <label for="">Type Number</label>
+<input type="text" [(ngModel)]="num">
+<div [ngSwitch]="num">
+  <div *ngSwitchCase="'1'">One</div>
+  <div *ngSwitchCase="'2'">Two</div>
+  <div *ngSwitchCase="'3'">Three</div>
+  <div *ngSwitchCase="'4'">Four</div>
+</div> -->
+
+<!-- Attribute Directives  - Changes appearance and behaviour -->
+
+<!-- ngClass -->
+<!-- <p [ngClass]="['primary','big']">Can you show me?</p> -->
+<!-- Attribute Directives - Object type -->
+<!-- <input type="checkbox" [(ngModel)]="applyRed">
+<p [ngClass]="{'primary':applyRed,'big':applyRed}">Can you show me?</p> -->
+
+<!-- ngStyle-->
+<!-- <p [ngStyle]="{'color':'red', 'font-size':'40px'}">Sample text</p>
+<p [ngStyle]="{'color': status== 'success'? 'green':'red'}">Sample text</p> -->
+
+<!-- Create custom directive -->
+<!-- PS E:\Workspace\Angular\myApp> ng generate directive highlight (or)
+PS E:\Workspace\Angular\myApp> ng g d highlight -->
+<!-- <p highlight>Sample text</p> -->
+
+
+<!-- Simple CRUD -->
+<!-- <div class="container"> 
+  <div class="row">
+    <h1>AngularSimple CRUD</h1>
+    <div class="col-4">
+      <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="name">
+      </div>
+   </div>
+   <div class="col-1">
+      <button class="btn btn-success" (click)="save()">Save</button>
+   </div>
+  </div>
+  <div class="row">
+		<div class="col-6	 mt-2">
+			<h3>Pending List</h3>
+			<ul class="list-group">
+				<li class="list-group-item" *ngFor="let item of pendingItems;let i=index" >{{item}} 
+					<div class="float-end">
+						<a href="#" (click)="edit(i)"><i class="bi bi-pencil-fill"></i>
+						</a>&nbsp;
+						<a href="#" (click)="delete(i)"><i class="bi bi-trash-fill text-danger"></i>
+						</a>&nbsp;
+						<a href="#" (click)="complete(i)"><i class="bi bi-check-circle-fill text-success"></i>
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="col-6	 mt-2">
+			<h3>Completed List</h3>
+			<ul class="list-group">
+				<li class="list-group-item" *ngFor="let item of completedItems;" >{{item}} </li>
+			</ul>
+		</div>
+	</div>
+</div>  -->
+
+<!-- Pipe -->
+ <!-- <p>unformatted date:{{toDate}}</p>
+ <p>formatted date:{{toDate|date:'medium'}}</p>
+ <p>formatted date:{{toDate|date:'short'}}</p>
+ <p>formatted date:{{toDate|date:'fullDate'}}</p>
+ <p>formatted date:{{toDate|date:'longDate'}}</p>
+ <p>Message:{{message|uppercase}}</p>
+ <p>Message:{{message|lowercase}}</p>
+ <p>Example1:{{message|slice:11:20}}</p>
+ <p>Example2:{{message|slice:-7}}</p>
+ <p>Example3:{{message|slice:0:7}}</p>
+ <p>Price:{{price|currency}}</p>
+ <p>Price:{{price|currency:'INR'}}</p>
+ <p>Price:{{price|currency:'INR':false}}</p> -->
+
+<!-- Angular-state-management - Share data form child to child -->
+<!-- <div style="justify-content: center;width: 800px;height: 100px;display: flex;">
+	<div>
+	  <h1>Add Customer</h1>
+	  <app-child-customer-add (customerAdded)="getCustomers($event)" ></app-child-customer-add>
+	  <br/><br/>
+	  <h3>View Customers</h3>
+	  <app-child-customer-view [customers]="customers" ></app-child-customer-view>
+	</div>
+  </div> -->
+
+  <!-- Component life cycle hooks -->
+ <!-- <p>Title:<input type="text" [(ngModel)]="title1"><button (click)="addTitle()">Submit</button></p>
+ <br>
+  -->
+<!-- ngOnchanges - input enter every changes to be capture and -->
+<!-- <app-child-hooks [text]="titles"></app-child-hooks>  -->
+
+<!-- ngOnInit- after Onchages execute, one time only run  -->
+
+  <!-- ngDoCheck - input enter every changes to be capture the string or string array changes-->
+ <!-- <app-child-hooks [text]="titles"></app-child-hooks> -->
+
+ <!-- ngOnDestroy - check box to be checked to called destroy -->
+ <!-- <p>Disable heading:<input type="checkbox" [(ngModel)]="disableHeading"></p>
+ <br>
+ <app-child-hooks *ngIf="!disableHeading" [text]="titles"></app-child-hooks> -->
+
+
+ <!-- Template-driven-form -->
+<!-- <app-template-driven-form></app-template-driven-form> -->
+
+<!-- Reactive-form -->
+<!-- <app-reactive-form></app-reactive-form> -->
+
+
+<!--  Call Fake Api - CRUD (Post,Get,Put,Delete) -->
+<!-- <app-user-list></app-user-list> -->
+
+
+<!-- Route - Property binding -->
+<!-- <ul>
+    <li><a [routerLink]="['']">Home</a></li>
+    <li><a [routerLink]="['about']">About</a></li>
+    <li><a [routerLink]="['contact-us']">Contact Us</a></li>
+</ul> -->
+<!-- Route - Attribute binding -->
+<!-- <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/contact-us">Contact Us</a></li>
+</ul> -->
+<!-- <router-outlet></router-outlet> -->
+
+
+
+<!-- Sharing data using Services  -->
+<div style="justify-content: center;width: 800px;
+height: 100px;display: flex;">
+ 
+  <div>
+    <h1>Add Customer</h1>
+    <app-customer-add></app-customer-add>
+    <br/><br/>
+    <h1>View Customers</h1>
+    <app-customer-view></app-customer-view>
+  </div>
+  <div style="margin-left:30px">
+    <h1>Customer Report</h1>
+    <app-customer-report></app-customer-report>
+  </div>
+</div>
+
+
+
+<!-- NGRX State management  -->
+<!-- <div style="text-align:center">
+  <h1>
+    NGRX State management Example
+  </h1>
+</div>
+<div style="text-align:center">
+  <ngrx-customer-view></ngrx-customer-view>
+  <ngrx-customer-add></ngrx-customer-add>
+</div> -->

@@ -1,0 +1,46 @@
+<div *ngIf="edituser; then editForm; else addForm"></div>
+    <ng-template #addForm>
+        <div class="container">
+            <h3>Add User</h3>
+            <form [formGroup]="userForm" (submit)="onSubmit()">
+                <p>
+                <label for="name">Name :</label>
+                <input type="text" id="name" name="name" formControlName="name">         
+                </p>       
+                <p>
+                <label for="email">Email :</label>
+                <input type="text" id="email" name="email" formControlName="email">         
+                </p>       
+                <p>
+                <button type="submit" [disabled]="!userForm.valid">Submit</button>
+                </p>      
+            </form>
+        </div>
+    </ng-template>    
+    <ng-template #editForm>
+     <div class="container">
+            <h3>Edit User</h3>
+            <form [formGroup]="userForm" (submit)="onUpdate()">
+                <p>
+                <label for="name">Name :</label>
+                <input type="text" id="name" name="name" formControlName="name">         
+                </p>       
+                <p>
+                <label for="email">Email :</label>
+                <input type="text" id="email" name="email" formControlName="email">         
+                </p>       
+                <p>
+                <button type="submit" [disabled]="!userForm.valid">Submit</button>
+                </p>      
+            </form>
+     </div>
+    </ng-template>
+
+
+
+<div class="container">
+<h3>User List</h3>
+<ul>
+    <li *ngFor="let user of users"> {{user.name}} | {{user.email}} <button (click)="edit(user.id)">Edit</button><button (click)="delete(user.id)">delete</button></li>
+</ul>
+</div>
